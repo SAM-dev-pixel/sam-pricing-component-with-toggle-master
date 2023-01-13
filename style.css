@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --linear-gradient: linear-gradient(to bottom, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+    --very-light-grayish-blue: hsl(240, 78%, 98%);
+    --light-grayish-blue: hsl(234, 14%, 74%);
+    --grayish-blue: hsl(233, 13%, 49%);
+    --dark-grayish-blue: hsl(232, 13%, 33%);
+}
+body {
+    min-height: 100vh;
+    padding: 4.375rem 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    background-color: hsl(240, 100, 98);
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+.bg-top {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+}
+.bg-bottom {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+}
+.header {
+    width: max-content;
+    margin-bottom: 4rem;
+}
+.title {
+    font-size: 2rem;
+    color: var(--grayish-blue);
+    text-align: center;
+    margin-bottom: 2.875rem;
+}
+.annualy-txt,
+.monthly-txt {
+    font-size: 1rem;
+    color: var(--grayish-blue);
+}
+.switcher-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.56rem;
+}
+.switcher-btn {
+    width: 3.5rem;
+    height: 2rem;
+    padding: 0.25rem;
+    border-radius: 1.5rem;
+    background: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+    cursor: pointer;
+    
+}
+.round {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background-color: var(--very-light-grayish-blue);
+    transition: .25s;
+}
+.round.monthly-active {
+    margin-left: 100%;
+    transform: translateX(-100%);
+}
+.main {
+    width: clamp(2rem, 88vw, 65.625rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.basic-wrapper,
+.professional-wrapper,
+.master-wrapper {
+    width: 100%;
+    text-align: center;
+    padding: 2.25rem;
+    background-color: var(--very-light-grayish-blue);
+    box-shadow: 0rem 0rem 1.25rem hsla(237, 63%, 64%, .25);
+}
+.basic-wrapper { border-radius: .75rem 0 0 .75rem; }
+.professional-wrapper {
+    padding-block: 3.64rem;
+    border-radius: .75rem;
+    background: var(--linear-gradient);
+}
+.master-wrapper { border-radius: 0 .75rem .75rem 0; }
+.basic-title,
+.professional-title,
+.master-title {
+    font-size: 1.125rem;
+    color: var(--dark-grayish-blue);
+    text-align: center;
+}
+.professional-title,
+.professional-wrapper .price,
+.professional-wrapper .feature { color: var(--very-light-grayish-blue); }
+.price {
+    font-size: 2.625rem;
+    color: var(--very-dark-grayish-blue);
+    margin: .52em 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.price span { font-size: 4.25rem; }
+.feature-wrapper {
+    margin-bottom: 2rem;
+    list-style: none;
+}
+.feature {
+    color: var(--dark-grayish-blue);
+    font-size: 1rem;
+    padding: 1em;
+    border-block: .075rem solid var(--grayish-blue);
+}
+.feature:nth-child(1),
+.feature:nth-child(2) { border-bottom: none; }
+.professional-wrapper .feature { border-color: var(--light-grayish-blue); }
+.learn-more-btn {
+    color: var(--very-light-grayish-blue);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: .25em;
+    padding: 1.21em;
+    background: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));;
+    text-decoration: none;
+    border-radius: .25rem;
+    display: block;
+    transition: .25s;
+}
+.learn-more-btn:hover {
+    color: hsl(237, 63%, 64%);
+    background: transparent;
+    outline: .075rem solid hsl(237, 63%, 64%);
+}
+.professional-wrapper .learn-more-btn {
+    color: hsl(237, 63%, 64%);
+    background: var(--very-light-grayish-blue);
+}
+.professional-wrapper .learn-more-btn:hover {
+    color: var(--very-light-grayish-blue);
+    background: transparent;
+    outline: .075rem solid var(--very-light-grayish-blue);
+}
+@media (width <= 1150px) {
+    .main {
+        width: clamp(2rem, 88vw, 37rem);
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .basic-wrapper,
+    .professional-wrapper,
+    .master-wrapper {
+        border-radius: .75rem;
+    }
+    .professional-wrapper { padding-block: 2.25rem; }
+}
